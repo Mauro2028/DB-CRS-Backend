@@ -11,7 +11,7 @@ from admin import setup_admin
 from models import db, User, Worker
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
-app = Flask(__name__)
+app=Flask(__name__)
 app.url_map.strict_slashes = False
 app.config['JWT_SECRET_KEY'] = 'jugadores'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
@@ -23,14 +23,14 @@ CORS(app)
 setup_admin(app)
 
 
-app = Flask(__name__)
-app.url_map.strict_slashes = False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-MIGRATE = Migrate(app, db)
-db.init_app(app)
-CORS(app)
-setup_admin(app)
+# app = Flask(__name__)
+# app.url_map.strict_slashes = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# MIGRATE = Migrate(app, db)
+# db.init_app(app)
+# CORS(app)
+# setup_admin(app)
 
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
