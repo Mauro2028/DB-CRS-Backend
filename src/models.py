@@ -73,7 +73,7 @@ class Worker(db.Model):
     sector = db.Column(db.String(120), unique=True, nullable=False)
     coin = db.Column(db.String(120), unique=True, nullable=False)
     basic_salary = db.Column(db.String(120), unique=True, nullable=False)
-    varaible_salary = db.Column(db.String(120), unique=True, nullable=False)
+    variable_salary = db.Column(db.String(120), unique=True, nullable=False)
     cesta_ticket = db.Column(db.String(120), unique=True, nullable=False)
     Monthly_Cash_Flow = db.Column(db.String(120), unique=True, nullable=False)
     Profit_Days = db.Column(db.String(120), unique=True, nullable=False)
@@ -85,7 +85,9 @@ class Worker(db.Model):
     Mixed_anual_compensation = db.Column(db.String(120), unique=True, nullable=False)
     Assistance_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     Production_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
+    Transport_bonus=db.Column(db.Boolean(), unique=False, nullable=False)
     Savings_Bank = db.Column(db.Boolean(), unique=False, nullable=False)
+    sales_commissions = db.Column(db.Boolean(), unique=False, nullable=False)
     parking_payment = db.Column(db.Boolean(), unique=False, nullable=False)
     full_H_C_M_Emp_Family = db.Column(db.Boolean(), unique=False, nullable=False)
     partial_H_C_M_Emp_Family = db.Column(db.Boolean(), unique=False, nullable=False)
@@ -165,7 +167,7 @@ class Worker(db.Model):
             "sector": self.sector, 
             "coin": self.coin,
             "basic_salary": self.basic_salary,
-            "varaible_salary": self.varaible_salary,
+            "variable_salary": self.varaible_salary,
             "cesta_ticket": self.cesta_ticket,
             "Monthly_Cash_Flow": self.Monthly_Cash_Flow,
             "Profit_Days": self.Profit_Days,
@@ -177,7 +179,9 @@ class Worker(db.Model):
             "Mixed_anual_compensation": self.Mixed_anual_compensation,
             "Assistance_bonus": self.Assistance_bonus,
             "Production_bonus": self.Production_bonus,
+            "Transport_bonus":sekf.Transport_bonus,
             "Savings_Bank": self.Savings_Bank,
+            "sales_commissions":self.sales_commissions,
             "parking_payment": self.parking_payment,
             "full_H_C_M_Emp_Family": self.full_H_C_M_Emp_Family,
             "partial_H_C_M_Emp_Family": self.partial_H_C_M_Emp_Family,
