@@ -111,7 +111,7 @@ class Worker(db.Model):
     marriage_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     birth_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     Vehicle_Credit = db.Column(db.Boolean(), unique=False, nullable=False)
-    Mortgage_credit = db.Column(db.Boolean(), unique=False, nullable=False)
+    Mortgage_credit = db.Column(db.Boolean(), default=False, server_default="false",unique=False, nullable=False)
     Psychological_Test = db.Column(db.Integer, unique=False, nullable=False)
     Technical_knowledge_test = db.Column(db.Integer, unique=False, nullable=False)
     Business_knowledge_test = db.Column(db.Integer, unique=False, nullable=False)
@@ -128,8 +128,8 @@ class Worker(db.Model):
     Checking_Records_Detail = db.Column(db.String(120), unique=False, nullable=False)
 
 
-    def __repr__(self):
-        return '<User %r>' % self.username
+    # def __repr__(self):
+    #     return '<User %r>' % self.username
 
     def serialize(self):
         return {
