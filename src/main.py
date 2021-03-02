@@ -139,7 +139,7 @@ def handle_signup_worker():
 @app.route('/worker')
 def handle_all_worker():
     """Devuelve la lista de trabajadores"""
-    workers = worker.query.all()
+    workers = Worker.query.all()
     response_body = []
     for worker in workers:
         response_body.append(worker.serialize())
@@ -156,12 +156,29 @@ def handle_worker(id):
             "result": "worker not found"
         }), 404
 
-@app.route('/worker/<int:id>', methods=['DELETE'])
-def delete_worker(id): 
-    """ elimina un trabajador por su ID"""
-    db.session.delete(worker.query.get(id) )
-    db.session.commit() 
-    return '', 204
+# @app.route('/worker/<int:id>', methods=['DELETE'])
+# def delete_worker(id): 
+#     """ elimina un trabajador por su ID"""
+#     db.session.delete(worker.query.get(id) )
+#     db.session.commit() 
+#     return '', 204
+
+@app.route('/salary', methods=["GET"])
+def handle_all_salarys():
+    """Devuelve la lista de salarios"""
+    all_salary = db.session.query(Worker.basic_salary, Worker.variable_salary)
+    salarys = []
+    for salary in all_salary:
+        salarys.append(salary[0])
+    return jsonify(salarys), 200
+
+# @app.route('/mood/<int:id>', methods=['DELETE'])
+# def delete_mood_autless(id): 
+#     """ elimina un talento humano por su ID"""
+    
+#     db.session.delete(Worker.query.get(id) )
+#     db.session.commit() 
+#     return '', 204
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
