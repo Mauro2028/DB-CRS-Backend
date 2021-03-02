@@ -3,6 +3,8 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from base64 import b64encode
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import Boolean
+from sqlalchemy import TypeDecorator
 
 
 db = SQLAlchemy()
@@ -109,14 +111,14 @@ class Worker(db.Model):
     marriage_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     birth_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     Vehicle_Credit = db.Column(db.Boolean(), unique=False, nullable=False)
-    Mortgage_credit = db.Column(db.Boolean(), unique=False, nullable=False)
+    Mortgage_credit = db.Column(db.Boolean(Fa), unique=False, nullable=False)
     Psychological_Test = db.Column(db.Integer, unique=False, nullable=False)
     Technical_knowledge_test = db.Column(db.Integer, unique=False, nullable=False)
     Business_knowledge_test = db.Column(db.Integer, unique=False, nullable=False)
     Other_tests = db.Column(db.Integer, unique=False, nullable=False)
     Global_Average = db.Column(db.Integer, unique=False, nullable=False)
-    References_Check = db.Column(db.Boolean(), unique=False, nullable=False)
-    Technical_Test_Results = db.Column(db.Boolean(), unique=False, nullable=False)
+    References_Check = db.Column(db.String(120), unique=False, nullable=False)
+    Technical_Test_Results = db.Column(db.Integer, unique=False, nullable=False)
     Observations = db.Column(db.String(120), unique=True, nullable=False)
     Days_passed_requisition_interviewGH = db.Column(db.String(120), unique=True, nullable=False)
     Days_passed_interviewGH_Techinterview = db.Column(db.String(120), unique=True, nullable=False)
@@ -167,7 +169,7 @@ class Worker(db.Model):
             "sector": self.sector, 
             "coin": self.coin,
             "basic_salary": self.basic_salary,
-            "variable_salary": self.varaible_salary,
+            "variable_salary": self.variable_salary,
             "cesta_ticket": self.cesta_ticket,
             "Monthly_Cash_Flow": self.Monthly_Cash_Flow,
             "Profit_Days": self.Profit_Days,
@@ -179,7 +181,7 @@ class Worker(db.Model):
             "Mixed_anual_compensation": self.Mixed_anual_compensation,
             "Assistance_bonus": self.Assistance_bonus,
             "Production_bonus": self.Production_bonus,
-            "Transport_bonus":sekf.Transport_bonus,
+            "Transport_bonus":self.Transport_bonus,
             "Savings_Bank": self.Savings_Bank,
             "sales_commissions":self.sales_commissions,
             "parking_payment": self.parking_payment,

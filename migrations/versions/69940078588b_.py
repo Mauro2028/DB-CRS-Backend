@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2a20e2c30daf
+Revision ID: 69940078588b
 Revises: 
-Create Date: 2021-02-28 20:54:59.900708
+Create Date: 2021-03-01 21:03:47.077795
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2a20e2c30daf'
+revision = '69940078588b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -63,7 +63,7 @@ def upgrade():
     sa.Column('sector', sa.String(length=120), nullable=False),
     sa.Column('coin', sa.String(length=120), nullable=False),
     sa.Column('basic_salary', sa.String(length=120), nullable=False),
-    sa.Column('varaible_salary', sa.String(length=120), nullable=False),
+    sa.Column('variable_salary', sa.String(length=120), nullable=False),
     sa.Column('cesta_ticket', sa.String(length=120), nullable=False),
     sa.Column('Monthly_Cash_Flow', sa.String(length=120), nullable=False),
     sa.Column('Profit_Days', sa.String(length=120), nullable=False),
@@ -75,7 +75,9 @@ def upgrade():
     sa.Column('Mixed_anual_compensation', sa.String(length=120), nullable=False),
     sa.Column('Assistance_bonus', sa.Boolean(), nullable=False),
     sa.Column('Production_bonus', sa.Boolean(), nullable=False),
+    sa.Column('Transport_bonus', sa.Boolean(), nullable=False),
     sa.Column('Savings_Bank', sa.Boolean(), nullable=False),
+    sa.Column('sales_commissions', sa.Boolean(), nullable=False),
     sa.Column('parking_payment', sa.Boolean(), nullable=False),
     sa.Column('full_H_C_M_Emp_Family', sa.Boolean(), nullable=False),
     sa.Column('partial_H_C_M_Emp_Family', sa.Boolean(), nullable=False),
@@ -103,8 +105,8 @@ def upgrade():
     sa.Column('Business_knowledge_test', sa.Integer(), nullable=False),
     sa.Column('Other_tests', sa.Integer(), nullable=False),
     sa.Column('Global_Average', sa.Integer(), nullable=False),
-    sa.Column('References_Check', sa.Boolean(), nullable=False),
-    sa.Column('Technical_Test_Results', sa.Boolean(), nullable=False),
+    sa.Column('References_Check', sa.String(length=120), nullable=False),
+    sa.Column('Technical_Test_Results', sa.Integer(), nullable=False),
     sa.Column('Observations', sa.String(length=120), nullable=False),
     sa.Column('Days_passed_requisition_interviewGH', sa.String(length=120), nullable=False),
     sa.Column('Days_passed_interviewGH_Techinterview', sa.String(length=120), nullable=False),
@@ -155,7 +157,7 @@ def upgrade():
     sa.UniqueConstraint('sector'),
     sa.UniqueConstraint('vacant'),
     sa.UniqueConstraint('vacations'),
-    sa.UniqueConstraint('varaible_salary')
+    sa.UniqueConstraint('variable_salary')
     )
     # ### end Alembic commands ###
 
