@@ -111,26 +111,12 @@ def handle_signup_worker():
     if data is None:
         raise APIException("You need to specify the request body as a json object", status_code=400)
 
-    new_worker = Worker(init_date=data['init_date'], Consultor=data['Consultor'], candidate=data['candidate'], nationality=data['nationality'], cedula=data['cedula'],
+    new_worker = Worker(init_date=data['init_date'], Consultor=data['Consultor'], candidate=data['candidate'],  cedula=data['cedula'],
     status=data['status'],phone_number=data['phone_number'],email=data['email'],catchment_source=data['catchment_source'],managment=data['managment'],vacant=data['vacant'],
-    branch_office=data['branch_office'],interview_date=data['interview_date'],Technical_Interview_date=data['Technical_Interview_date'],salary_offer_date=data['salary_offer_date'],
-    preemployment_test_date=data['preemployment_test_date'],References_Check_date=data['References_Check_date'],admission_date=data['admission_date'],
-    current_employment_contract=data['current_employment_contract'],Participation_at_Softech=data['Participation_at_Softech'],Reason=data['Reason'],Salary_Aspirations=data['Salary_Aspirations'],
-    Academic_level=data['Academic_level'],Place_of_residence=data['Place_of_residence'],experience_years=data['experience_years'],availability=data['availability'],
-    Current_courses=data['Current_courses'],Software_Hardware_ERP_knowledge=data['Software_Hardware_ERP_knowledge'],know_someone_company=data['know_someone_company'],
-    name_work_person=data['name_work_person'],actual_charge=data['actual_charge'],company=data['company'],sector=data['sector'],coin=data['coin'],
-    basic_salary=data['basic_salary'],variable_salary=data['variable_salary'],cesta_ticket=data['cesta_ticket'],Monthly_Cash_Flow=data['Monthly_Cash_Flow'],Profit_Days=data['Profit_Days'],
+    Salary_Aspirations=data['Salary_Aspirations'],actual_charge=data['actual_charge'],company=data['company'],sector=data['sector'],coin=data['coin'],
+    basic_salary=data['basic_salary'],variable_salary=data['variable_salary'],cesta_ticket=data['cesta_ticket'],Profit_Days=data['Profit_Days'],
     vacations=data['vacations'],Vacation_Bonus=data['Vacation_Bonus'],Factor=data['Factor'],Estimated_annual_package=data['Estimated_annual_package'],
-    Mixed_mothly_compensation=data['Mixed_mothly_compensation'],Mixed_anual_compensation=data['Mixed_anual_compensation'],Assistance_bonus=data['Assistance_bonus'],Production_bonus=data['Production_bonus'],
-    Transport_bonus=data['Transport_bonus'],sales_commissions=data["sales_commissions"],Savings_Bank=data['Savings_Bank'],parking_payment=data['parking_payment'],full_H_C_M_Emp_Family=data['full_H_C_M_Emp_Family'],
-    partial_H_C_M_Emp_Family=data['partial_H_C_M_Emp_Family'],Funeral_Insurance=data['Funeral_Insurance'],Vehicle_insurance=data['Vehicle_insurance'],life_insurance=data['life_insurance'],dinning_room=data['dinning_room'],
-    food_bags=data['food_bags'],uniform=data['uniform'],birthday_bonus=data['birthday_bonus'],vacational_plans=data['vacational_plans'],Seniority_premium=data['Seniority_premium'],
-    children_premium=data['children_premium'],proffesion_premium=data['proffesion_premium'],december_gift=data['december_gift'],Gym=data['Gym'],School_scholarships=data['School_scholarships'],
-    school_supplies=data['school_supplies'],marriage_bonus=data['marriage_bonus'],birth_bonus=data['birth_bonus'],Vehicle_Credit=data['Vehicle_Credit'],Mortgage_credit=data['Mortgage_credit'],
-    Psychological_Test=data['Psychological_Test'],Technical_knowledge_test=data['Technical_knowledge_test'],Business_knowledge_test=data['Business_knowledge_test'],Other_tests=data['Other_tests'],Global_Average=data['Global_Average'],
-    References_Check=data['References_Check'],Technical_Test_Results=data['Technical_Test_Results'],Observations=data['Observations'],Days_passed_requisition_interviewGH=data['Days_passed_requisition_interviewGH'],
-    Days_passed_interviewGH_Techinterview=data['Days_passed_interviewGH_Techinterview'],Days_passed_Techinterview_entry=data['Days_passed_Techinterview_entry'],Days_passed_requisition_entry=data['Days_passed_requisition_entry'],
-    Days_passed_open_status=data['Days_passed_open_status'],Checking_Records_Detail=data['Checking_Records_Detail'],
+    Mixed_mothly_compensation=data['Mixed_mothly_compensation'],Mixed_anual_compensation=data['Mixed_anual_compensation']
     )
     db.session.add(new_worker) 
     db.session.commit()
@@ -183,10 +169,10 @@ def handle_all_salarys():
     a_salarys = []
     for salary in as_salary:
         a_salarys.append(salary[0])
-    mf_salary = db.session.query( Worker.Monthly_Cash_Flow )
-    m_salarys = []
-    for salary in mf_salary:
-        m_salarys.append(salary[0])
+    # mf_salary = db.session.query( Worker.Monthly_Cash_Flow )
+    # m_salarys = []
+    # for salary in mf_salary:
+    #     m_salarys.append(salary[0])
     du_salary = db.session.query( Worker.Profit_Days)
     d_salarys = []
     for salary in du_salary:
@@ -203,7 +189,7 @@ def handle_all_salarys():
     f_salarys = []
     for salary in fac_salary:
         f_salarys.append(salary[0])
-    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys, "aspiraciones salariales", a_salarys, "flujo de caja mensual", m_salarys, "dias de utilidades", d_salarys,"disfrute de vacaciones", vac_salarys,"Bono vacacional", b_salarys,"Factor", f_salarys ), 200
+    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys, "aspiraciones salariales", a_salarys, "flujo de caja mensual", d_salarys,"disfrute de vacaciones", vac_salarys,"Bono vacacional", b_salarys,"Factor", f_salarys ), 200
 
 
 @app.route('/mood/<int:id>', methods=['DELETE'])
