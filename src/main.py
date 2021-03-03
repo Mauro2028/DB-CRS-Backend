@@ -149,29 +149,38 @@ def handle_all_worker():
 @app.route("/worker/<int:id>")
 def handle_worker(id):
     """ buscar y regresa un trabajador"""
-    worker = workers.query.get(id)
-    if isinstance(worker, workers):
-        return jsonify(worker.serialize()), 200
+    workers = Worker.query.get(id)
+    if isinstance(Worker, workers):
+        return jsonify(workers.serialize()), 200
     else:
         return jsonify({
             "result": "worker not found"
         }), 404
 
-# @app.route('/worker/<int:id>', methods=['DELETE'])
-# def delete_worker(id): 
-#     """ elimina un trabajador por su ID"""
-#     db.session.delete(worker.query.get(id) )
-#     db.session.commit() 
-#     return '', 204
+@app.route('/worker/<int:id>', methods=['DELETE'])
+def delete_worker(id): 
+    """ elimina un trabajador por su ID"""
+    db.session.delete(Worker.query.get(id) )
+    db.session.commit() 
+    return '', 204
 
 @app.route('/salary', methods=["GET"])
 def handle_all_salarys():
     """Devuelve la lista de salarios"""
-    all_salary = db.session.query(Worker.basic_salary, Worker.variable_salary)
-    salarys = []
+    all_salary = db.session.query(Worker.basic_salary  )
+    basic_salarys = []
     for salary in all_salary:
-        salarys.append(salary[0])
-    return jsonify(salarys), 200
+        basic_salarys.append(salary[0])
+    ll_salary = db.session.query( Worker.variable_salary )
+    v_salarys = []
+    for salary in ll_salary:
+        v_salarys.append(salary[0])
+    l_salary = db.session.query( Worker.cesta_ticket )
+    c_salarys = []
+    for salary in l_salary:
+        c_salarys.append(salary[0])
+    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys), 200
+
 
 # @app.route('/mood/<int:id>', methods=['DELETE'])
 # def delete_mood_autless(id): 

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 314d709f77b3
+Revision ID: a730a536c85b
 Revises: 
-Create Date: 2021-03-02 12:58:21.639322
+Create Date: 2021-03-02 19:24:44.368027
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '314d709f77b3'
+revision = 'a730a536c85b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -114,50 +114,7 @@ def upgrade():
     sa.Column('Days_passed_requisition_entry', sa.String(length=120), nullable=False),
     sa.Column('Days_passed_open_status', sa.String(length=120), nullable=False),
     sa.Column('Checking_Records_Detail', sa.String(length=120), nullable=False),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('Academic_level'),
-    sa.UniqueConstraint('Checking_Records_Detail'),
-    sa.UniqueConstraint('Current_courses'),
-    sa.UniqueConstraint('Days_passed_Techinterview_entry'),
-    sa.UniqueConstraint('Days_passed_interviewGH_Techinterview'),
-    sa.UniqueConstraint('Days_passed_open_status'),
-    sa.UniqueConstraint('Days_passed_requisition_entry'),
-    sa.UniqueConstraint('Days_passed_requisition_interviewGH'),
-    sa.UniqueConstraint('Estimated_annual_package'),
-    sa.UniqueConstraint('Factor'),
-    sa.UniqueConstraint('Mixed_anual_compensation'),
-    sa.UniqueConstraint('Mixed_mothly_compensation'),
-    sa.UniqueConstraint('Monthly_Cash_Flow'),
-    sa.UniqueConstraint('Observations'),
-    sa.UniqueConstraint('Place_of_residence'),
-    sa.UniqueConstraint('Profit_Days'),
-    sa.UniqueConstraint('Reason'),
-    sa.UniqueConstraint('References_Check_date'),
-    sa.UniqueConstraint('Salary_Aspirations'),
-    sa.UniqueConstraint('Software_Hardware_ERP_knowledge'),
-    sa.UniqueConstraint('Technical_Interview_date'),
-    sa.UniqueConstraint('Vacation_Bonus'),
-    sa.UniqueConstraint('actual_charge'),
-    sa.UniqueConstraint('admission_date'),
-    sa.UniqueConstraint('availability'),
-    sa.UniqueConstraint('basic_salary'),
-    sa.UniqueConstraint('branch_office'),
-    sa.UniqueConstraint('catchment_source'),
-    sa.UniqueConstraint('cesta_ticket'),
-    sa.UniqueConstraint('coin'),
-    sa.UniqueConstraint('company'),
-    sa.UniqueConstraint('current_employment_contract'),
-    sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('experience_years'),
-    sa.UniqueConstraint('interview_date'),
-    sa.UniqueConstraint('managment'),
-    sa.UniqueConstraint('name_work_person'),
-    sa.UniqueConstraint('preemployment_test_date'),
-    sa.UniqueConstraint('salary_offer_date'),
-    sa.UniqueConstraint('sector'),
-    sa.UniqueConstraint('vacant'),
-    sa.UniqueConstraint('vacations'),
-    sa.UniqueConstraint('variable_salary')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 
