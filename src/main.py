@@ -167,7 +167,7 @@ def delete_worker(id):
 @app.route('/salary', methods=["GET"])
 def handle_all_salarys():
     """Devuelve la lista de salarios"""
-    all_salary = db.session.query(Worker.basic_salary  )
+    all_salary = db.session.query(Worker.basic_salary ) 
     basic_salarys = []
     for salary in all_salary:
         basic_salarys.append(salary[0])
@@ -179,16 +179,40 @@ def handle_all_salarys():
     c_salarys = []
     for salary in l_salary:
         c_salarys.append(salary[0])
-    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys), 200
+    as_salary = db.session.query( Worker.Salary_Aspirations )
+    a_salarys = []
+    for salary in as_salary:
+        a_salarys.append(salary[0])
+    mf_salary = db.session.query( Worker.Monthly_Cash_Flow )
+    m_salarys = []
+    for salary in mf_salary:
+        m_salarys.append(salary[0])
+    du_salary = db.session.query( Worker.Profit_Days)
+    d_salarys = []
+    for salary in du_salary:
+        d_salarys.append(salary[0])
+    dv_salary = db.session.query( Worker.vacations)
+    vac_salarys = []
+    for salary in dv_salary:
+        vac_salarys.append(salary[0])
+    bv_salary = db.session.query( Worker.Vacation_Bonus)
+    b_salarys = []
+    for salary in bv_salary:
+        b_salarys.append(salary[0])
+    fac_salary = db.session.query( Worker.Factor)
+    f_salarys = []
+    for salary in fac_salary:
+        f_salarys.append(salary[0])
+    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys, "aspiraciones salariales", a_salarys, "flujo de caja mensual", m_salarys, "dias de utilidades", d_salarys,"disfrute de vacaciones", vac_salarys,"Bono vacacional", b_salarys,"Factor", f_salarys ), 200
 
 
-# @app.route('/mood/<int:id>', methods=['DELETE'])
-# def delete_mood_autless(id): 
-#     """ elimina un talento humano por su ID"""
+@app.route('/mood/<int:id>', methods=['DELETE'])
+def delete_mood_autless(id): 
+    """ elimina un talento humano por su ID"""
     
-#     db.session.delete(Worker.query.get(id) )
-#     db.session.commit() 
-#     return '', 204
+    db.session.delete(Worker.query.get(id) )
+    db.session.commit() 
+    return '', 204
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
