@@ -23,16 +23,6 @@ db.init_app(app)
 CORS(app)
 setup_admin(app)
 
-
-# app = Flask(__name__)
-# app.url_map.strict_slashes = False
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# MIGRATE = Migrate(app, db)
-# db.init_app(app)
-# CORS(app)
-# setup_admin(app)
-
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):
@@ -78,7 +68,7 @@ def handle_signup_manager():
 @app.route("/login", methods=["POST"])
 def handle_login(): 
     """ verifica el password de manager de Gestion Humana con user = data['user'] y genera un token si lo consigue"""
-    # Revisar jwt
+
     
     data = request.get_json()
 
@@ -113,10 +103,10 @@ def handle_signup_worker():
 
     new_worker = Worker(init_date=data['init_date'], Consultor=data['Consultor'], candidate=data['candidate'],  cedula=data['cedula'],
     status=data['status'],phone_number=data['phone_number'],email=data['email'],catchment_source=data['catchment_source'],managment=data['managment'],vacant=data['vacant'],
-    Salary_Aspirations=data['Salary_Aspirations'],actual_charge=data['actual_charge'],company=data['company'],sector=data['sector'],coin=data['coin'],
+    interview_date=data['interview_date'],actual_charge=data['actual_charge'],company=data['company'],sector=data['sector'],coin=data['coin'],
     basic_salary=data['basic_salary'],variable_salary=data['variable_salary'],cesta_ticket=data['cesta_ticket'],Profit_Days=data['Profit_Days'],
     vacations=data['vacations'],Vacation_Bonus=data['Vacation_Bonus'],Factor=data['Factor'],Estimated_annual_package=data['Estimated_annual_package'],
-    Mixed_mothly_compensation=data['Mixed_mothly_compensation'],Mixed_anual_compensation=data['Mixed_anual_compensation']
+
     )
     db.session.add(new_worker) 
     db.session.commit()
@@ -133,7 +123,7 @@ def handle_all_worker():
     return jsonify(response_body), 200
 
 @app.route("/worker/<int:id>")
-def handle_worker(id):
+def handle_workers(id):
     """ buscar y regresa un trabajador"""
     workers = Worker.query.get(id)
     if isinstance(Worker, workers):
@@ -165,14 +155,6 @@ def handle_all_salarys():
     c_salarys = []
     for salary in l_salary:
         c_salarys.append(salary[0])
-    as_salary = db.session.query( Worker.Salary_Aspirations )
-    a_salarys = []
-    for salary in as_salary:
-        a_salarys.append(salary[0])
-    # mf_salary = db.session.query( Worker.Monthly_Cash_Flow )
-    # m_salarys = []
-    # for salary in mf_salary:
-    #     m_salarys.append(salary[0])
     du_salary = db.session.query( Worker.Profit_Days)
     d_salarys = []
     for salary in du_salary:
@@ -189,16 +171,18 @@ def handle_all_salarys():
     f_salarys = []
     for salary in fac_salary:
         f_salarys.append(salary[0])
-    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys, "aspiraciones salariales", a_salarys, "flujo de caja mensual", d_salarys,"disfrute de vacaciones", vac_salarys,"Bono vacacional", b_salarys,"Factor", f_salarys ), 200
+    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys, d_salarys,"disfrute de vacaciones", vac_salarys,"Bono vacacional", b_salarys,"Factor", f_salarys ), 200
 
 
-@app.route('/mood/<int:id>', methods=['DELETE'])
-def delete_mood_autless(id): 
-    """ elimina un talento humano por su ID"""
-    
-    db.session.delete(Worker.query.get(id) )
-    db.session.commit() 
-    return '', 204
+
+@app.route('/workers', methods=['GET'])
+def handle_worker():
+    workers = Worker.query.all()
+    response_body=[]
+    for worker in workers:
+        response_body.append(worker.serialize())
+
+    return jsonify(response_body), 200
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':

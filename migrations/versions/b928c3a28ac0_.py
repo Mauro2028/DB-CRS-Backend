@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 0ad2d040d303
+Revision ID: b928c3a28ac0
 Revises: 
-Create Date: 2021-03-03 16:07:11.529992
+Create Date: 2021-03-04 13:16:21.166510
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0ad2d040d303'
+revision = 'b928c3a28ac0'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -38,7 +38,7 @@ def upgrade():
     sa.Column('catchment_source', sa.String(length=120), nullable=False),
     sa.Column('managment', sa.String(length=120), nullable=False),
     sa.Column('vacant', sa.String(length=120), nullable=False),
-    sa.Column('Salary_Aspirations', sa.String(length=120), nullable=False),
+    sa.Column('interview_date', sa.String(length=120), nullable=False),
     sa.Column('actual_charge', sa.String(length=120), nullable=False),
     sa.Column('company', sa.String(length=120), nullable=False),
     sa.Column('sector', sa.String(length=120), nullable=False),
@@ -51,8 +51,6 @@ def upgrade():
     sa.Column('Vacation_Bonus', sa.Integer(), nullable=False),
     sa.Column('Factor', sa.Integer(), nullable=False),
     sa.Column('Estimated_annual_package', sa.Integer(), nullable=False),
-    sa.Column('Mixed_mothly_compensation', sa.Integer(), nullable=False),
-    sa.Column('Mixed_anual_compensation', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

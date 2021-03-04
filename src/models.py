@@ -16,6 +16,9 @@ class User(db.Model):
     hashed_password = db.Column(db.String(120), unique=False, nullable=False)
     full_name = db.Column(db.String(120), unique=False, nullable=False)
 
+    def __repr__(self):
+        return '<User %r>' % self.user_name
+
     def set_password(self,password):
         self.hashed_password = generate_password_hash(f"{password}{self.salt}")
     
@@ -52,7 +55,7 @@ class Worker(db.Model):
     managment = db.Column(db.String(120), unique=False, nullable=False)
     vacant = db.Column(db.String(120), unique=False, nullable=False)
     # branch_office = db.Column(db.String(120), unique=False, nullable=False)
-    # interview_date = db.Column(db.String(120), unique=False, nullable=False)
+    interview_date = db.Column(db.String(120), unique=False, nullable=False)
     # Technical_Interview_date = db.Column(db.String(120), unique=False, nullable=False)
     # salary_offer_date = db.Column(db.String(120), unique=False, nullable=False)
     # preemployment_test_date = db.Column(db.String(120), unique=False, nullable=False)
@@ -61,7 +64,7 @@ class Worker(db.Model):
     # current_employment_contract = db.Column(db.String(120), unique=False, nullable=False)
     # Participation_at_Softech = db.Column(db.Boolean(), unique=False, nullable=False)
     # Reason = db.Column(db.String(120), unique=False, nullable=False)
-    Salary_Aspirations = db.Column(db.String(120), unique=False, nullable=False)
+    # Salary_Aspirations = db.Column(db.String(120), unique=False, nullable=False)
     # Academic_level = db.Column(db.String(120), unique=False, nullable=False)
     # Place_of_residence = db.Column(db.String(120), unique=False, nullable=False)
     # experience_years = db.Column(db.String(120), unique=False, nullable=False)
@@ -83,8 +86,8 @@ class Worker(db.Model):
     Vacation_Bonus = db.Column(db.Integer, unique=False, nullable=False)
     Factor = db.Column(db.Integer, unique=False, nullable=False)
     Estimated_annual_package = db.Column(db.Integer, unique=False, nullable=False)
-    Mixed_mothly_compensation = db.Column(db.Integer, unique=False, nullable=False)
-    Mixed_anual_compensation = db.Column(db.Integer, unique=False, nullable=False)
+    # Mixed_mothly_compensation = db.Column(db.Integer, unique=False, nullable=False)
+    # Mixed_anual_compensation = db.Column(db.Integer, unique=False, nullable=False)
     # Assistance_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     # Production_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     # Transport_bonus=db.Column(db.Boolean(), unique=False, nullable=False)
@@ -128,8 +131,7 @@ class Worker(db.Model):
     # Checking_Records_Detail = db.Column(db.String(120), unique=False, nullable=False)
 
 
-    # def __repr__(self):
-    #     return '<User %r>' % self.username
+    
     
     def serialize(self):
         return {
@@ -146,7 +148,7 @@ class Worker(db.Model):
             "managment": self.managment,
             "vacant": self.vacant,
             # "branch_office": self.branch_office,
-            # "interview_date": self.interview_date,
+            "interview_date": self.interview_date,
             # "Technical_Interview_date": self.Technical_Interview_date,
             # "salary_offer_date": self.salary_offer_date,
             # "preemployment_test_date": self.preemployment_test_date,
@@ -155,7 +157,7 @@ class Worker(db.Model):
             # "current_employment_contract": self.current_employment_contract,
             # "Participation_at_Softech": self.Participation_at_Softech,
             # "Reason": self.Reason, 
-            "Salary_Aspirations": self.Salary_Aspirations,
+            # "Salary_Aspirations": self.Salary_Aspirations,
             # "Academic_level": self.Academic_level,
             # "Place_of_residence":self.Place_of_residence,
             # "experience_years": self.experience_years,
@@ -177,8 +179,8 @@ class Worker(db.Model):
             "Vacation_Bonus": self.Vacation_Bonus,
             "Factor": self.Factor,
             "Estimated_annual_package": self.Estimated_annual_package,
-            "Mixed_mothly_compensation": self.Mixed_mothly_compensation,
-            "Mixed_anual_compensation": self.Mixed_anual_compensation,
+            # "Mixed_mothly_compensation": self.Mixed_mothly_compensation,
+            # "Mixed_anual_compensation": self.Mixed_anual_compensation,
             # "Assistance_bonus": self.Assistance_bonus,
             # "Production_bonus": self.Production_bonus,
             # "Transport_bonus":self.Transport_bonus,
