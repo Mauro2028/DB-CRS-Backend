@@ -84,7 +84,7 @@ class Worker(db.Model):
     Profit_Days = db.Column(db.Integer, unique=False, nullable=False)
     vacations = db.Column(db.Integer, unique=False, nullable=False)
     Vacation_Bonus = db.Column(db.Integer, unique=False, nullable=False)
-    Factor = db.Column(db.Integer, unique=False, nullable=False)
+    Factor = db.Column(db.Integer, unique=False, nullable=True)
     Estimated_annual_package = db.Column(db.Integer, unique=False, nullable=False)
     # Mixed_mothly_compensation = db.Column(db.Integer, unique=False, nullable=False)
     # Mixed_anual_compensation = db.Column(db.Integer, unique=False, nullable=False)
@@ -166,7 +166,7 @@ class Worker(db.Model):
             # "Software_Hardware_ERP_knowledge": self.Software_Hardware_ERP_knowledge,
             # "know_someone_company": self.know_someone_company,
             # "name_work_person": self.name_work_person,
-            # "actual_charge": self.actual_charge,
+            "actual_charge": self.actual_charge,
             "company": self.company, 
             "sector": self.sector, 
             "coin": self.coin,
