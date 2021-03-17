@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: eca1bc523e7d
+Revision ID: d4b11a254e9f
 Revises: 
-Create Date: 2021-03-05 12:26:55.745678
+Create Date: 2021-03-17 16:56:42.360130
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'eca1bc523e7d'
+revision = 'd4b11a254e9f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,7 +28,7 @@ def upgrade():
     )
     op.create_table('worker',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('init_date', sa.String(length=80), nullable=False),
+    sa.Column('init_date', sa.DateTime(timezone=True), nullable=False),
     sa.Column('Consultor', sa.String(length=80), nullable=False),
     sa.Column('candidate', sa.String(length=80), nullable=False),
     sa.Column('cedula', sa.Integer(), nullable=False),
@@ -49,7 +49,7 @@ def upgrade():
     sa.Column('Profit_Days', sa.Integer(), nullable=False),
     sa.Column('vacations', sa.Integer(), nullable=False),
     sa.Column('Vacation_Bonus', sa.Integer(), nullable=False),
-    sa.Column('Factor', sa.Integer(), nullable=False),
+    sa.Column('Factor', sa.Integer(), nullable=True),
     sa.Column('Estimated_annual_package', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )

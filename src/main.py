@@ -171,7 +171,7 @@ def handle_all_salarys():
     f_salarys = []
     for salary in fac_salary:
         f_salarys.append(salary[0])
-    return jsonify("salario basico",basic_salarys,"salario variable",v_salarys, "cesta ticket",  c_salarys, d_salarys,"disfrute de vacaciones", vac_salarys,"Bono vacacional", b_salarys,"Factor", f_salarys ), 200
+    return jsonify(basic_salarys,v_salarys, c_salarys, d_salarys, vac_salarys, b_salarys, f_salarys ), 200
 
 
 
