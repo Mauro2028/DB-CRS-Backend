@@ -44,7 +44,7 @@ class User(db.Model):
 
 class Worker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    init_date = db.Column(db.DateTime(timezone=True), nullable=False)
+    init_date = db.Column(db.String(80), unique=False, nullable=False)
     # db.String(80), unique=False, nullable=False)
     Consultor = db.Column(db.String(80), unique=False, nullable=False)
     candidate = db.Column(db.String(80), unique=False, nullable=False)
@@ -132,17 +132,14 @@ class Worker(db.Model):
     # Days_passed_open_status = db.Column(db.String(120), unique=False, nullable=False)
     # Checking_Records_Detail = db.Column(db.String(120), unique=False, nullable=False)
 
-    def __init__(self, init_date):
-        self.init_date = datetime.datetime.now(datetime.timezone.utc)
+    # def __init__(self, init_date):
+    #     self.init_date = datetime.datetime.now(datetime.timezone.utc)
 
-
-    def get_date(self):
-        return self.init_date.strftime("%x")
     
     def serialize(self):
         return {
             "id": self.id,
-            "init_date":self.get_date(),
+            "init_date":self.init_date,
             "Consultor":self.Consultor,
             "candidate": self.candidate,
             # "nationality": self.nationality,
