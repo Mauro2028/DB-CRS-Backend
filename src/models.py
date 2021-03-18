@@ -124,7 +124,7 @@ class Worker(db.Model):
     # Global_Average = db.Column(db.Integer, unique=False, nullable=False)
     # References_Check = db.Column(db.String(120), unique=False, nullable=False)
     # Technical_Test_Results = db.Column(db.Integer, unique=False, nullable=False)
-    # Observations = db.Column(db.String(120), unique=False, nullable=False)
+    Observations = db.Column(db.String(300), unique=False, nullable=False)
     # Days_passed_requisition_interviewGH = db.Column(db.String(120), unique=False, nullable=False)
     # Days_passed_interviewGH_Techinterview = db.Column(db.String(120), unique=False, nullable=False)
     # Days_passed_Techinterview_entry = db.Column(db.String(120), unique=False, nullable=False)
@@ -218,7 +218,7 @@ class Worker(db.Model):
             # "Global_Average": self.Global_Average,
             # "References_Check": self.References_Check, 
             # "Technical_Test_Results": self.Technical_Test_Results, 
-            # "Observations": self.Observations,
+            "Observations": self.Observations,
             # "Days_passed_requisition_interviewGH": self.Days_passed_requisition_interviewGH,
             # "Days_passed_interviewGH_Techinterview": self.Days_passed_interviewGH_Techinterview,
             # "Days_passed_Techinterview_entry": self.Days_passed_Techinterview_entry,
