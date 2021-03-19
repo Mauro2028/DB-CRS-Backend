@@ -88,6 +88,7 @@ class Worker(db.Model):
     Vacation_Bonus = db.Column(db.Integer, unique=False, nullable=False)
     Factor = db.Column(db.Integer, unique=False, nullable=True)
     Estimated_annual_package = db.Column(db.Integer, unique=False, nullable=False)
+    Observations = db.Column(db.String(300), unique=False, nullable=True)
     # Mixed_mothly_compensation = db.Column(db.Integer, unique=False, nullable=False)
     # Mixed_anual_compensation = db.Column(db.Integer, unique=False, nullable=False)
     # Assistance_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
@@ -124,7 +125,7 @@ class Worker(db.Model):
     # Global_Average = db.Column(db.Integer, unique=False, nullable=False)
     # References_Check = db.Column(db.String(120), unique=False, nullable=False)
     # Technical_Test_Results = db.Column(db.Integer, unique=False, nullable=False)
-    Observations = db.Column(db.String(300), unique=False, nullable=False)
+    
     # Days_passed_requisition_interviewGH = db.Column(db.String(120), unique=False, nullable=False)
     # Days_passed_interviewGH_Techinterview = db.Column(db.String(120), unique=False, nullable=False)
     # Days_passed_Techinterview_entry = db.Column(db.String(120), unique=False, nullable=False)
@@ -182,6 +183,7 @@ class Worker(db.Model):
             "Vacation_Bonus": self.Vacation_Bonus,
             "Factor": self.Factor,
             "Estimated_annual_package": self.Estimated_annual_package,
+            "Observations": self.Observations,
             # "Mixed_mothly_compensation": self.Mixed_mothly_compensation,
             # "Mixed_anual_compensation": self.Mixed_anual_compensation,
             # "Assistance_bonus": self.Assistance_bonus,
@@ -218,7 +220,7 @@ class Worker(db.Model):
             # "Global_Average": self.Global_Average,
             # "References_Check": self.References_Check, 
             # "Technical_Test_Results": self.Technical_Test_Results, 
-            "Observations": self.Observations,
+            
             # "Days_passed_requisition_interviewGH": self.Days_passed_requisition_interviewGH,
             # "Days_passed_interviewGH_Techinterview": self.Days_passed_interviewGH_Techinterview,
             # "Days_passed_Techinterview_entry": self.Days_passed_Techinterview_entry,

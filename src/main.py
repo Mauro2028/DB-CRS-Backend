@@ -102,7 +102,7 @@ def handle_signup_worker():
         raise APIException("You need to specify the request body as a json object", status_code=400)
 
     new_worker = Worker(init_date=data['init_date'], Consultor=data['Consultor'], candidate=data['candidate'],  cedula=data['cedula'],
-    status=data['status'],phone_number=data['phone_number'],email=data['email'],catchment_source=data['catchment_source'],managment=data['managment'],vacant=data['vacant'],
+    status=data['status'],phone_number=data['phone_number'],email=data['email'],catchment_source=data['catchment_source'],managment=data['managment'],vacant=data['vacant'],Observations=data['Observations'],
     interview_date=data['interview_date'],actual_charge=data['actual_charge'],company=data['company'],sector=data['sector'],coin=data['coin'],
     basic_salary=data['basic_salary'],variable_salary=data['variable_salary'],cesta_ticket=data['cesta_ticket'],Profit_Days=data['Profit_Days'],
     vacations=data['vacations'],Vacation_Bonus=data['Vacation_Bonus'],Factor=data['Factor'],Estimated_annual_package=data['Estimated_annual_package'],
