@@ -92,18 +92,18 @@ class Worker(db.Model):
     # Mixed_mothly_compensation = db.Column(db.Integer, unique=False, nullable=False)
     # Mixed_anual_compensation = db.Column(db.Integer, unique=False, nullable=False)
     # Assistance_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
-    # Production_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
-    # Transport_bonus=db.Column(db.Boolean(), unique=False, nullable=False)
-    # Savings_Bank = db.Column(db.Boolean(), unique=False, nullable=False)
-    # sales_commissions = db.Column(db.Boolean(), unique=False, nullable=False)
-    # parking_payment = db.Column(db.Boolean(), unique=False, nullable=False)
-    # full_H_C_M_Emp_Family = db.Column(db.Boolean(), unique=False, nullable=False)
-    # partial_H_C_M_Emp_Family = db.Column(db.Boolean(), unique=False, nullable=False)
+    # Production_bonus = db.Column(db.String(120), unique=False, nullable=False)
+    # Transport_bonus=db.Column(db.String(120), unique=False, nullable=False)
+    # Savings_Bank = db.Column(db.String(120), unique=False, nullable=False)
+    # sales_commissions = db.Column(db.String(120), unique=False, nullable=False)
+    # parking_payment = db.Column(db.String(120), unique=False, nullable=False)
+    # full_HCM_Emp_Family = db.Column(db.String(120), unique=False, nullable=False)
+    # partial_HCM_Emp_Family = db.Column(db.Boolean(), unique=False, nullable=False)
     # Funeral_Insurance = db.Column(db.Boolean(), unique=False, nullable=False)
-    # Vehicle_insurance = db.Column(db.Boolean(), unique=False, nullable=False)
-    # life_insurance = db.Column(db.Boolean(), unique=False, nullable=False)
-    # dinning_room = db.Column(db.Boolean(), unique=False, nullable=False)
-    # food_bags = db.Column(db.Boolean(), unique=False, nullable=False)
+    # Vehicle_insurance = db.Column(db.String(120), unique=False, nullable=False)
+    # life_insurance = db.Column(db.String(120), unique=False, nullable=False)
+    # dinning_room = db.Column(db.String(120), unique=False, nullable=False)
+    # food_bags = db.Column(db.String(120), unique=False, nullable=False)
     # uniform = db.Column(db.Boolean(), unique=False, nullable=False)
     # birthday_bonus = db.Column(db.Boolean(), unique=False, nullable=False)
     # vacational_plans = db.Column(db.Boolean(), unique=False, nullable=False)
@@ -192,8 +192,8 @@ class Worker(db.Model):
             # "Savings_Bank": self.Savings_Bank,
             # "sales_commissions":self.sales_commissions,
             # "parking_payment": self.parking_payment,
-            # "full_H_C_M_Emp_Family": self.full_H_C_M_Emp_Family,
-            # "partial_H_C_M_Emp_Family": self.partial_H_C_M_Emp_Family,
+            # "full_HCM_Emp_Family": self.full_HCM_Emp_Family,
+            # "partial_HCM_Emp_Family": self.partial_HCM_Emp_Family,
             # "Funeral_Insurance": self.Funeral_Insurance,
             # "Vehicle_insurance": self.Vehicle_insurance,
             # "life_insurance": self.life_insurance,
