@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 3b3585624d21
+Revision ID: 71336045c195
 Revises: 
-Create Date: 2021-03-18 15:43:01.367048
+Create Date: 2021-03-24 16:09:57.260560
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3b3585624d21'
+revision = '71336045c195'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,7 +33,7 @@ def upgrade():
     sa.Column('candidate', sa.String(length=80), nullable=False),
     sa.Column('cedula', sa.Integer(), nullable=False),
     sa.Column('status', sa.String(length=80), nullable=False),
-    sa.Column('phone_number', sa.Integer(), nullable=False),
+    sa.Column('phone_number', sa.String(length=120), nullable=False),
     sa.Column('email', sa.String(length=120), nullable=False),
     sa.Column('catchment_source', sa.String(length=120), nullable=False),
     sa.Column('managment', sa.String(length=120), nullable=False),
@@ -51,7 +51,18 @@ def upgrade():
     sa.Column('Vacation_Bonus', sa.Integer(), nullable=False),
     sa.Column('Factor', sa.Integer(), nullable=True),
     sa.Column('Estimated_annual_package', sa.Integer(), nullable=False),
-    sa.Column('Observations', sa.String(length=300), nullable=False),
+    sa.Column('Observations', sa.String(length=300), nullable=True),
+    sa.Column('Production_bonus', sa.String(length=120), nullable=False),
+    sa.Column('Transport_bonus', sa.String(length=120), nullable=False),
+    sa.Column('Savings_Bank', sa.String(length=120), nullable=False),
+    sa.Column('sales_commissions', sa.String(length=120), nullable=False),
+    sa.Column('parking_payment', sa.String(length=120), nullable=False),
+    sa.Column('full_HCM_Emp_Family', sa.String(length=120), nullable=False),
+    sa.Column('partial_HCM_Emp_Family', sa.String(length=120), nullable=False),
+    sa.Column('Vehicle_insurance', sa.String(length=120), nullable=False),
+    sa.Column('life_insurance', sa.String(length=120), nullable=False),
+    sa.Column('dinning_room', sa.String(length=120), nullable=False),
+    sa.Column('food_bags', sa.String(length=120), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
