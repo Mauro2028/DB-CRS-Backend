@@ -7,9 +7,9 @@
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.3.27
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+-- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+-- START TRANSACTION;
+-- SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `Worker`
 --
 
-UPDATE TABLE `Worker` (
+UPDATE TABLE worker (
   `id` int(11) DEFAULT NULL,
   `init_date` varchar(120) DEFAULT NULL,
   `Consultor` varchar(120) DEFAULT NULL,
@@ -70,7 +70,7 @@ UPDATE TABLE `Worker` (
 -- Volcado de datos para la tabla `Worker`
 --
 
-INSERT INTO `Worker` (`id`, `init_date`, `Consultor`, `candidate`, `cedula`, `status`, `phone_number`, `email`, `catchment_source`, `managment`, `vacant`, `interview_date`, `actual_charge`, `company`, `sector`, `coin`, `basic_salary`, `variable_salary`, `cesta_ticket`, `Profit_Days`, `vacations`, `Vacation_Bonus`, `Factor`, `Estimated_annual_package`, `Production_bonus`, `Transport_bonus`, `Savings_Bank`, `sales_commissions`, `parking_payment`, `full_HCM_Emp_Family`, `partial_HCM_Emp_Family`, `Vehicle_insurance`, `life_insurance`, `dinning_room`, `food_bags`, `Observations`) VALUES
+INSERT INTO worker (`id`, `init_date`, `Consultor`, `candidate`, `cedula`, `status`, `phone_number`, `email`, `catchment_source`, `managment`, `vacant`, `interview_date`, `actual_charge`, `company`, `sector`, `coin`, `basic_salary`, `variable_salary`, `cesta_ticket`, `Profit_Days`, `vacations`, `Vacation_Bonus`, `Factor`, `Estimated_annual_package`, `Production_bonus`, `Transport_bonus`, `Savings_Bank`, `sales_commissions`, `parking_payment`, `full_HCM_Emp_Family`, `partial_HCM_Emp_Family`, `Vehicle_insurance`, `life_insurance`, `dinning_room`, `food_bags`, `Observations`) VALUES
 (1, 'marzo', 'Estefany De Sousa', 'Juan Carlos Rosendo', 0, 'Citado a entrevista', '4122837931', 'rosendojuanrovati95@hotmail.com', 'Redes sociales', 'Servicio al Cliente', 'PASANTE', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', ''),
 (2, 'marzo', 'Estefany De Sousa', 'Oscar Guzman', 14196321, 'No elegible por entrevista GH', '414 1399095', 'Oscarjga80@gmail.com', 'Empléate', 'Mercadeo y Ventas', 'ASESOR DE NEGOCIOS', '3/2/21', 'INDEPENDIENTE', 'CUENTA PROPIA', '', '80', 0, 0, 0, 0, 0, 0, 0, 80, '', '', '', '', '', '', '', '', '', '', '', 'No elegible, no cumple con el perfil. '),
 (4, 'marzo', 'Estefany De Sousa', 'Jesús Rodriguez Mendez', 0, 'No elegible por entrevista GH', '', '', 'Linkedin', 'Plataforma', 'ADMINISTRADOR DE PLATAFORMA', '', 'ADMINISTRADOR DE INFRAESTRUCTURA', 'SOLITECH', 'TECNOLOGÍA', '', 0, 0, 0, 0, 0, 0, 0, 200, '', '', '', '', '', '', '', '', '', '', '', 'No elegible / no posee los conocimientos técnicos. Trabaja por honorarios profesionales'),
@@ -165,9 +165,8 @@ INSERT INTO `Worker` (`id`, `init_date`, `Consultor`, `candidate`, `cedula`, `st
 (104, 'marzo', 'Estefany De Sousa', 'Adriana Perez', 0, 'No responde al contacto (Mail / telf.) para entrevista GH', '', '', 'Linkedin', 'Tecnología Funcional', 'ANALISTA FUNCIONAL IV (Tecnología)', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', ''),
 (105, 'marzo', 'Estefany De Sousa', 'Miguel Alvarez', 0, 'Elegible entrevista GH', '0416-9177144', 'maalvarezb210478@gmail.com', 'Linkedin', 'Tecnología Funcional', 'ANALISTA FUNCIONAL IV (Tecnología)', '3/22/21', 'TESTER QA', 'MIPTO DEVEELOPMENT', 'TECNOLOGICO', '', 0, 0, 0, 0, 0, 0, 0, 100, '', '', '', '', '', '', '', '', '', '', '', 'Elegible en entrevista GH/No percibía nada en bolivares'),
 (106, 'marzo', 'Estefany De Sousa', 'Miguel Alejandro Servita', 0, 'Elegible entrevista GH', '0412-6046580', 'miguelservita1@gmail.com', 'Empléate', 'Tecnología Funcional', 'ANALISTA FUNCIONAL IV (Tecnología)', '3/22/21', 'LIDER QA', 'CONSULTEC, C.A', 'TECNOLOGICO', '', 0, 0, 0, 0, 0, 0, 0, 400, '', '', '', '', '', '', '', '', '', '', '', 'Elegible en entrevista GH/No percibía nada en bolivares'),
-(107, 'marzo', 'Estefany De Sousa', 'Betzaid Guerra', 0, 'Citado a entrevista GH', '0424-1364449', 'guerrabetzaid@gmail.com', 'Empléate', 'Tecnología Funcional', 'ANALISTA FUNCIONAL IV (Tecnología)', '3/22/21', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', ''),
-COMMIT;
+(107, 'marzo', 'Estefany De Sousa', 'Betzaid Guerra', 0, 'Citado a entrevista GH', '0424-1364449', 'guerrabetzaid@gmail.com', 'Empléate', 'Tecnología Funcional', 'ANALISTA FUNCIONAL IV (Tecnología)', '3/22/21', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+-- /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
