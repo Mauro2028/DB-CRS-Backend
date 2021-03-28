@@ -106,7 +106,7 @@ def handle_signup_worker():
     interview_date=data['interview_date'],actual_charge=data['actual_charge'],company=data['company'],sector=data['sector'],coin=data['coin'],
     basic_salary=data['basic_salary'],variable_salary=data['variable_salary'],cesta_ticket=data['cesta_ticket'],Profit_Days=data['Profit_Days'],
     vacations=data['vacations'],Vacation_Bonus=data['Vacation_Bonus'],Factor=data['Factor'],Estimated_annual_package=data['Estimated_annual_package']
-    ,Production_bonus=data['Production_bonus'],Transport_bonus=data['Transport_bonus'],Savings_Bank=data['Savings_Bank'],sales_commissions=data['sales_commissions'],food_bags=data['food_bags'],
+    ,Production_bonus=data['Production_bonus'],Transport_bonus=data['Transport_bonus'],Savings_Bank=data['Savings_Bank'],food_bags=data['food_bags'],
     parking_payment=data['parking_payment'],partial_HCM_Emp_Family=data['partial_HCM_Emp_Family'],Vehicle_insurance=data['Vehicle_insurance'],
     life_insurance=data['life_insurance'],
     dinning_room=data['dinning_room'],

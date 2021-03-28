@@ -47,7 +47,7 @@ class Worker(db.Model):
     init_date = db.Column(db.String(80), unique=False, nullable=False)
     Consultor = db.Column(db.String(80), unique=False, nullable=False)
     candidate = db.Column(db.String(80), unique=False, nullable=False)
-    cedula = db.Column(db.Integer, unique=False, nullable=False)
+    cedula = db.Column(db.String(120), unique=False, nullable=False)
     status = db.Column(db.String(80), unique=False, nullable=False)
     phone_number = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=False, nullable=False)
@@ -58,20 +58,20 @@ class Worker(db.Model):
     actual_charge = db.Column(db.String(120), unique=False, nullable=False)
     company = db.Column(db.String(120), unique=False, nullable=False)
     sector = db.Column(db.String(120), unique=False, nullable=False)
-    coin = db.Column(db.String(120), unique=False, nullable=False)
+    coin = db.Column(db.Integer, unique=False, nullable=False)
     basic_salary = db.Column(db.Integer, unique=False, nullable=False)
     variable_salary = db.Column(db.Integer, unique=False, nullable=False)
     cesta_ticket = db.Column(db.Integer, unique=False, nullable=False)
     Profit_Days = db.Column(db.Integer, unique=False, nullable=False)
     vacations = db.Column(db.Integer, unique=False, nullable=False)
     Vacation_Bonus = db.Column(db.Integer, unique=False, nullable=False)
-    Factor = db.Column(db.Integer, unique=False, nullable=True)
-    Estimated_annual_package = db.Column(db.Integer, unique=False, nullable=False)
+    Factor = db.Column(db.String(120), unique=False, nullable=True)
+    Estimated_annual_package = db.Column(db.String(120), unique=False, nullable=False)
     Observations = db.Column(db.String(300), unique=False, nullable=True)
     Production_bonus = db.Column(db.String(120), unique=False, nullable=False)
     Transport_bonus=db.Column(db.String(120), unique=False, nullable=False)
     Savings_Bank = db.Column(db.String(120), unique=False, nullable=False)
-    sales_commissions = db.Column(db.String(120), unique=False, nullable=False)
+    
     parking_payment = db.Column(db.String(120), unique=False, nullable=False)
     full_HCM_Emp_Family = db.Column(db.String(120), unique=False, nullable=False)
     partial_HCM_Emp_Family = db.Column(db.String(120), unique=False, nullable=False)
@@ -110,7 +110,7 @@ class Worker(db.Model):
                 "Production_bonus": self.Production_bonus,
                 "Transport_bonus":self.Transport_bonus,
                 "Savings_Bank": self.Savings_Bank,
-                "sales_commissions":self.sales_commissions,
+               
                 "parking_payment": self.parking_payment,
                 "full_HCM_Emp_Family": self.full_HCM_Emp_Family,
                 "partial_HCM_Emp_Family": self.partial_HCM_Emp_Family,

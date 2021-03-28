@@ -32,7 +32,7 @@ UPDATE TABLE worker (
   `init_date` varchar(120) DEFAULT NULL,
   `Consultor` varchar(120) DEFAULT NULL,
   `candidate` varchar(120) DEFAULT NULL,
-  `cedula` int(11) DEFAULT NULL,
+  `cedula` varchar(120) DEFAULT NULL,
   `status` varchar(120) DEFAULT NULL,
   `phone_number` varchar(120) DEFAULT NULL,
   `email` varchar(120) DEFAULT NULL,
