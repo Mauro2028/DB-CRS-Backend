@@ -110,7 +110,6 @@ def handle_signup_worker():
     parking_payment=data['parking_payment'],partial_HCM_Emp_Family=data['partial_HCM_Emp_Family'],Vehicle_insurance=data['Vehicle_insurance'],
     life_insurance=data['life_insurance'],
     dinning_room=data['dinning_room'],
- 
     full_HCM_Emp_Family=data['full_HCM_Emp_Family']
     )
     db.session.add(new_worker) 
@@ -144,6 +143,35 @@ def delete_worker(id):
     db.session.delete(Worker.query.get(id) )
     db.session.commit() 
     return '', 204
+
+
+@app.route('/change/<int:id>', methods=['PATCH']) #PUT
+def handle_worker_update(id):
+    data = request.get_json()
+    update = Worker.query.get(id)
+    response_body = []
+    update.vacant = data['vacant']
+    update.status = data['status']
+    update.sector = data['sector']
+    update.company = data['company']
+    update.actual_charge = data['actual_charge']
+    update.managment = data['managment']
+    update.interview_date=data["interview_date"]
+    update.basic_salary = data["basic_salary"]
+    update.coin = data["coin"]
+    update.variable_salary = data["variable_salary"]
+    update.cesta_ticket = data["cesta_ticket"]
+    update.Profit_Days=data["Profit_Days"]
+    update.vacations=data["vacations"]
+    update.Vacation_Bonus=data["Vacation_Bonus"]
+    update.Factor=data["Factor"]
+    update.Estimated_annual_package=data["Estimated_annual_package"]
+    update.Vacation_Bonus=data["Vacation_Bonus"]
+    update.Observations=data["Observations"]
+
+
+    db.session.commit()
+    return jsonify(response_body), 200
 
 @app.route('/salary', methods=["GET"])
 def handle_all_salarys():
