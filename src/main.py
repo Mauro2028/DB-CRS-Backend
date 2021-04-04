@@ -166,9 +166,17 @@ def handle_worker_update(id):
     update.Vacation_Bonus=data["Vacation_Bonus"]
     update.Factor=data["Factor"]
     update.Estimated_annual_package=data["Estimated_annual_package"]
-    update.Vacation_Bonus=data["Vacation_Bonus"]
+    update.Production_bonus=data["Production_bonus"]
+    update.Transport_bonus=data["Transport_bonus"]
+    update.Savings_Bank=data["Savings_Bank"]
+    update.parking_payment=data["parking_payment"]
+    update.full_HCM_Emp_Family=data["full_HCM_Emp_Family"]
+    update.partial_HCM_Emp_Family=data["partial_HCM_Emp_Family"]
+    update.Vehicle_insurance=data["Vehicle_insurance"]
+    update.life_insurance=data["life_insurance"]
+    update.dinning_room=data["dinning_room"]
+    update.food_bags=data["food_bags"]
     update.Observations=data["Observations"]
-
 
     db.session.commit()
     return jsonify(response_body), 200
