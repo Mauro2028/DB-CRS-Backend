@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: c1f35d851e40
+Revision ID: 785a51af8839
 Revises: 
-Create Date: 2021-04-11 15:00:46.712094
+Create Date: 2021-04-21 18:43:07.689724
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c1f35d851e40'
+revision = '785a51af8839'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,13 +42,13 @@ def upgrade():
     sa.Column('actual_charge', sa.String(length=120), nullable=True),
     sa.Column('company', sa.String(length=120), nullable=True),
     sa.Column('sector', sa.String(length=120), nullable=True),
-    sa.Column('coin', sa.Integer(), nullable=True),
-    sa.Column('basic_salary', sa.Integer(), nullable=True),
-    sa.Column('variable_salary', sa.Integer(), nullable=True),
-    sa.Column('cesta_ticket', sa.Integer(), nullable=True),
-    sa.Column('Profit_Days', sa.Integer(), nullable=True),
-    sa.Column('vacations', sa.Integer(), nullable=True),
-    sa.Column('Vacation_Bonus', sa.Integer(), nullable=True),
+    sa.Column('coin', sa.String(length=120), nullable=True),
+    sa.Column('basic_salary', sa.String(length=120), nullable=True),
+    sa.Column('variable_salary', sa.String(length=120), nullable=True),
+    sa.Column('cesta_ticket', sa.String(length=120), nullable=True),
+    sa.Column('Profit_Days', sa.String(length=120), nullable=True),
+    sa.Column('vacations', sa.String(length=120), nullable=True),
+    sa.Column('Vacation_Bonus', sa.String(length=120), nullable=True),
     sa.Column('Factor', sa.String(length=120), nullable=True),
     sa.Column('Estimated_annual_package', sa.String(length=120), nullable=True),
     sa.Column('Observations', sa.String(length=300), nullable=True),
